@@ -1,0 +1,93 @@
+{
+  "project": "Nimbus Expense — Multi-Currency & Delegate Approvals",
+  "as_of": "2026-08-14",
+  "overall_status": "red",
+  "overall_status_rationale": "The critical path has already slipped: EPIC-2-1 (zero slack) finished one business day late on Aug 12, and EPIC-2-3 (also zero slack) is now confirmed one day behind as a result, with Backend Eng stating there's no way to compress it further. Absent a decision to compress EPIC-3-4, the project finish moves from 2026-08-20 to 2026-08-21. Overall status reflects this — the worst-rated load-bearing epic — even though the slip is one day and one open risk (the compliance question on export attribution) was resolved this period.",
+  "schedule_summary": {
+    "target_finish": "2026-08-21",
+    "business_days_remaining": 5,
+    "on_track": false
+  },
+  "epics": [
+    {
+      "id": "EPIC-1",
+      "name": "Multi-currency expense submission & display",
+      "status": "amber",
+      "status_rationale": "EPIC-1-2 (FX rate integration) finished, but consumed half its schedule buffer (2d slack down to 1d) resolving a vendor sandbox rate-limit issue. No confirmed slip yet, but the remaining buffer is thin.",
+      "highlights": [
+        "Web and mobile currency selectors (EPIC-1-4, EPIC-1-5) delivered on schedule, no issues."
+      ]
+    },
+    {
+      "id": "EPIC-2",
+      "name": "Shared approval-resolution & delegate setup",
+      "status": "red",
+      "status_rationale": "EPIC-2-1 (zero slack, on critical path) finished 1 business day late (Aug 12 vs. planned Aug 11) due to an unplanned permissions issue with the Identity team. EPIC-2-3 (also zero slack) started a day late as a result and is now projected to finish Aug 15, one day past its Aug 14 target, with Backend Eng saying they're already at capacity and can't compress further.",
+      "highlights": [
+        "The root cause (auth-service permissions gap) is resolved and isn't expected to recur on the remaining delegate-routing work."
+      ]
+    },
+    {
+      "id": "EPIC-3",
+      "name": "Delegate notifications & audit trail",
+      "status": "amber",
+      "status_rationale": "EPIC-3-4 (zero slack, on critical path) hasn't started yet — blocked on EPIC-2-3. Platform Eng's own 4-day estimate is unchanged, so once unblocked this shouldn't add further delay beyond the 1 day already reflected in the project finish date, but the entire finish date now rides on that estimate holding exactly.",
+      "highlights": []
+    },
+    {
+      "id": "EPIC-4",
+      "name": "Admin controls for rollout",
+      "status": "green",
+      "status_rationale": "All admin/rollout work is low-risk and off the critical path with wide slack; no issues reported.",
+      "highlights": [
+        "EPIC-4-3 (feature flags) finished early."
+      ]
+    },
+    {
+      "id": "EPIC-5",
+      "name": "Finance reporting export updates",
+      "status": "green",
+      "status_rationale": "The compliance question this whole epic was gated on has been resolved, and the remaining work (EPIC-5-3) is now unblocked with its slack intact.",
+      "highlights": [
+        "Compliance confirmed the export-attribution rule this week (delegate-approved expenses attribute to the original approver) — this was the open question the PRD itself left unresolved, and it was also the single highest-severity cross-team risk on the register. It's closed."
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "summary": "Critical path has slipped 1 business day (EPIC-2-1 → EPIC-2-3), with no compression available on the Backend Eng side.",
+      "severity": "high",
+      "owner_team": "Platform Eng / Backend Eng",
+      "ask": "Confirm whether to accept the 1-day slip to 2026-08-21, or authorize parallel/expedited work on EPIC-3-4 to try to hold the original 2026-08-20 date.",
+      "linked_tasks": ["EPIC-2-1", "EPIC-2-3", "EPIC-3-4"]
+    },
+    {
+      "id": "R2",
+      "summary": "FX integration (EPIC-1-2) burned half its schedule buffer resolving a vendor rate-limit issue; only 1 day of slack remains if it recurs.",
+      "severity": "medium",
+      "owner_team": "Backend Eng",
+      "ask": "No action needed yet — flagging so it isn't a surprise if this needs escalation next period.",
+      "linked_tasks": ["EPIC-1-2"]
+    },
+    {
+      "id": "R3",
+      "summary": "EPIC-3-4 hasn't started and the whole revised finish date depends on its 4-day estimate holding exactly, with zero slack to absorb any further surprise.",
+      "severity": "medium",
+      "owner_team": "Platform Eng",
+      "ask": "None currently — monitoring. Will escalate if EPIC-2-3 slips past Aug 15.",
+      "linked_tasks": ["EPIC-2-3", "EPIC-3-4"]
+    }
+  ],
+  "milestones": [
+    {"date": "2026-08-15", "description": "EPIC-2-3 (delegation records + auto-expiry) expected to complete, one day behind original plan."},
+    {"date": "2026-08-21", "description": "Revised project finish date (originally 2026-08-20), pending the decision on EPIC-3-4."}
+  ],
+  "decisions_needed": [
+    {
+      "summary": "Accept a 1-business-day slip to 2026-08-21, or authorize parallel/overtime work on EPIC-3-4 (notification lifecycle events) to try to hold the original 2026-08-20 date.",
+      "owner": "Eng leadership / TPM",
+      "needed_by": "2026-08-15"
+    }
+  ]
+}
