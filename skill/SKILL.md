@@ -125,6 +125,7 @@ owner and an ask) and produces:
 
 - `status_report.md` — the full exec-ready report
 - `status_brief.md` — a short version for pasting into Slack or the top of an email
+- `status_report.html` — the same report as a single self-contained, styled HTML file
 
 Re-running after editing `status.json` is instant — the render step has no judgment
 in it, so the same input always produces the same output.

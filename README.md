@@ -32,6 +32,7 @@ cause: nobody re-derived the RAG rating from the schedule math, they just vibed 
    and an ask) and renders:
    - `status_report.md` — the full exec-ready report
    - `status_brief.md` — a condensed version for pasting into Slack or an email
+   - `status_report.html` — the same report as a single self-contained, styled page
 
 Same split as the first two projects: the model does the reconciliation and judgment
 call, plain code does the formatting — so re-rendering after editing `status.json` is
@@ -43,6 +44,9 @@ instant, and the report can't drift out of sync with the data behind it.
 example — the same "Nimbus Expense" backlog, already scheduled. Extending that story:
 [`examples/progress_updates.md`](examples/progress_updates.md) is what the teams
 actually reported at the Aug 14 checkpoint, partway through the plan.
+
+**Live demo:** [punit-labs.github.io/exec-status-report](https://punit-labs.github.io/exec-status-report/)
+— the actual rendered `status_report.html` for the example below.
 
 Result — [`examples/status.json`](examples/status.json), rendered to
 [`examples/output/`](examples/output/):

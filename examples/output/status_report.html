@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Status Report — Nimbus Expense — Multi-Currency &amp; Delegate Approvals</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+    background: #f6f7f9;
+    color: #1a1d21;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .container { max-width: 880px; margin: 0 auto; }
+  .card {
+    background: #fff;
+    border: 1px solid #e3e5e8;
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 0.85rem; color: #40454c; }
+  .as-of { color: #6b7280; font-size: 0.9rem; margin: 0 0 1rem; }
+  .rationale { margin: 0.75rem 0 0; }
+  .chip {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .chip-lg { padding: 0.35rem 1rem; font-size: 0.95rem; }
+  .stat-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .stat { flex: 1 1 160px; }
+  .stat .label { font-size: 0.78rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.03em; }
+  .stat .value { font-size: 1.15rem; font-weight: 600; margin-top: 0.15rem; }
+  ul { margin: 0; padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid #eceef1; vertical-align: top; }
+  th { color: #6b7280; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .callout {
+    border-left: 4px solid #664d03;
+    background: #fff9e6;
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+  }
+  .callout li { margin-bottom: 0.6rem; }
+  .callout li:last-child { margin-bottom: 0; }
+  .meta { color: #6b7280; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="card">
+    <h1>Nimbus Expense — Multi-Currency &amp; Delegate Approvals</h1>
+    <p class="as-of">As of 2026-08-14</p>
+    <span class="chip chip-lg" style="color:#842029;background:#f8d7da;">RED</span>
+    <p class="rationale">The critical path has already slipped: EPIC-2-1 (zero slack) finished one business day late on Aug 12, and EPIC-2-3 (also zero slack) is now confirmed one day behind as a result, with Backend Eng stating there&#x27;s no way to compress it further. Absent a decision to compress EPIC-3-4, the project finish moves from 2026-08-20 to 2026-08-21. Overall status reflects this — the worst-rated load-bearing epic — even though the slip is one day and one open risk (the compliance question on export attribution) was resolved this period.</p>
+  </div>
+
+  <div class="card">
+    <h2>Schedule</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="label">Target finish</div><div class="value">2026-08-21</div></div>
+      <div class="stat"><div class="label">Business days remaining</div><div class="value">5</div></div>
+      <div class="stat"><div class="label">On track</div><div class="value">No</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Highlights</h2>
+    <ul>
+      <li><strong>EPIC-1</strong> (Multi-currency expense submission &amp; display): Web and mobile currency selectors (EPIC-1-4, EPIC-1-5) delivered on schedule, no issues.</li>
+      <li><strong>EPIC-2</strong> (Shared approval-resolution &amp; delegate setup): The root cause (auth-service permissions gap) is resolved and isn&#x27;t expected to recur on the remaining delegate-routing work.</li>
+      <li><strong>EPIC-4</strong> (Admin controls for rollout): EPIC-4-3 (feature flags) finished early.</li>
+      <li><strong>EPIC-5</strong> (Finance reporting export updates): Compliance confirmed the export-attribution rule this week (delegate-approved expenses attribute to the original approver) — this was the open question the PRD itself left unresolved, and it was also the single highest-severity cross-team risk on the register. It&#x27;s closed.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Epic Status</h2>
+    <table>
+      <tr><th>Epic</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>EPIC-1 — Multi-currency expense submission &amp; display</td><td><span class="chip" style="color:#664d03;background:#fff3cd;">AMBER</span></td><td>EPIC-1-2 (FX rate integration) finished, but consumed half its schedule buffer (2d slack down to 1d) resolving a vendor sandbox rate-limit issue. No confirmed slip yet, but the remaining buffer is thin.</td></tr>
+      <tr><td>EPIC-2 — Shared approval-resolution &amp; delegate setup</td><td><span class="chip" style="color:#842029;background:#f8d7da;">RED</span></td><td>EPIC-2-1 (zero slack, on critical path) finished 1 business day late (Aug 12 vs. planned Aug 11) due to an unplanned permissions issue with the Identity team. EPIC-2-3 (also zero slack) started a day late as a result and is now projected to finish Aug 15, one day past its Aug 14 target, with Backend Eng saying they&#x27;re already at capacity and can&#x27;t compress further.</td></tr>
+      <tr><td>EPIC-3 — Delegate notifications &amp; audit trail</td><td><span class="chip" style="color:#664d03;background:#fff3cd;">AMBER</span></td><td>EPIC-3-4 (zero slack, on critical path) hasn&#x27;t started yet — blocked on EPIC-2-3. Platform Eng&#x27;s own 4-day estimate is unchanged, so once unblocked this shouldn&#x27;t add further delay beyond the 1 day already reflected in the project finish date, but the entire finish date now rides on that estimate holding exactly.</td></tr>
+      <tr><td>EPIC-4 — Admin controls for rollout</td><td><span class="chip" style="color:#0f5132;background:#d1e7dd;">GREEN</span></td><td>All admin/rollout work is low-risk and off the critical path with wide slack; no issues reported.</td></tr>
+      <tr><td>EPIC-5 — Finance reporting export updates</td><td><span class="chip" style="color:#0f5132;background:#d1e7dd;">GREEN</span></td><td>The compliance question this whole epic was gated on has been resolved, and the remaining work (EPIC-5-3) is now unblocked with its slack intact.</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Risks &amp; Blockers</h2>
+    <table>
+      <tr><th>Severity</th><th>Risk</th><th>Owner</th><th>Ask</th></tr>
+      <tr><td><span class="chip" style="color:#842029;background:#f8d7da;">HIGH</span></td><td>Critical path has slipped 1 business day (EPIC-2-1 → EPIC-2-3), with no compression available on the Backend Eng side.</td><td>Platform Eng / Backend Eng</td><td>Confirm whether to accept the 1-day slip to 2026-08-21, or authorize parallel/expedited work on EPIC-3-4 to try to hold the original 2026-08-20 date.</td></tr>
+      <tr><td><span class="chip" style="color:#664d03;background:#fff3cd;">MEDIUM</span></td><td>FX integration (EPIC-1-2) burned half its schedule buffer resolving a vendor rate-limit issue; only 1 day of slack remains if it recurs.</td><td>Backend Eng</td><td>No action needed yet — flagging so it isn&#x27;t a surprise if this needs escalation next period.</td></tr>
+      <tr><td><span class="chip" style="color:#664d03;background:#fff3cd;">MEDIUM</span></td><td>EPIC-3-4 hasn&#x27;t started and the whole revised finish date depends on its 4-day estimate holding exactly, with zero slack to absorb any further surprise.</td><td>Platform Eng</td><td>None currently — monitoring. Will escalate if EPIC-2-3 slips past Aug 15.</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Milestones</h2>
+    <ul>
+      <li><strong>2026-08-15</strong> — EPIC-2-3 (delegation records + auto-expiry) expected to complete, one day behind original plan.</li>
+      <li><strong>2026-08-21</strong> — Revised project finish date (originally 2026-08-20), pending the decision on EPIC-3-4.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Decisions Needed</h2>
+    <ul class="callout">
+      <li>Accept a 1-business-day slip to 2026-08-21, or authorize parallel/overtime work on EPIC-3-4 (notification lifecycle events) to try to hold the original 2026-08-20 date. <span class="meta">(owner: Eng leadership / TPM, needed by: 2026-08-15)</span></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
