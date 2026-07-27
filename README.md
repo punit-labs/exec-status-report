@@ -56,6 +56,8 @@ question got closed out the same week, and two epics are fully green. The report
 doesn't average those out — a real, unrecoverable slip on the critical path makes the
 project red regardless of what else went well, and the rationale says exactly why.
 
+![Terminal demo: running render_status.py against the example status.json, producing a real RAG-rated status report](assets/demo.gif)
+
 ## Using it
 
 1. Copy `skill/` into your Claude Code skills directory (project-level:
