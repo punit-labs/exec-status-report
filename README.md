@@ -95,6 +95,10 @@ Requires only Python 3 (stdlib only, no dependencies) for the render step.
   rejects any `status.json` with an invalid RAG/severity value or a risk missing an
   owner or an ask, so a malformed judgment fails loudly instead of shipping a report
   with a blank cell where an accountable owner should be.
+- **`status.json` also feeds the flagship.** Along with the other three tools'
+  outputs, it's one of the four inputs to
+  [`tpm-command-center`](https://github.com/punit-labs/tpm-command-center), which
+  aggregates the whole pipeline into one dashboard.
 
 ## License
 
